@@ -5,17 +5,17 @@ import Style from "./SiteNavStyle.module.css";
 const SiteLayout = () => {
   const navLinks = [
     {
-      id: "Home",
+      id: "1",
       to: "/",
       value: "Home",
     },
     {
-      id: "Books",
+      id: "2",
       to: "/List",
       value: "Books",
     },
     {
-      id: "Add",
+      id: "3",
       to: "/Add",
       value: "Add",
     },
