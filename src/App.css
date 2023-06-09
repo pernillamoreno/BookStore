@@ -37,3 +37,8 @@
     transform: translateY(0px);
   }
 }
+
+a.active {
+  font-size: x-large;
+  color: rgb(255, 127, 127);
+}
