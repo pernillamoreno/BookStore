@@ -1,0 +1,25 @@
+.header{
+    height: 100px;
+    background-image: url(bok_3.jpg);
+    background-color:rgba(244, 243, 238, 0.62);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: larger;
+
+}
+
+header > h1 {
+    color:aliceblue;
+}
+
+.content-section {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    font-family: Roboto;
+}
+nav > Link{
+    float: left;
+}
