@@ -1,27 +1,65 @@
 import { NavLink } from "react-router-dom";
 import Style from "./SiteNavStyle.module.css";
 
+/*new cleaner code does quit the same as the code below*/
 const SiteLayout = () => {
+  const navLinks = [
+    {
+      id: "Home",
+      to: "/",
+      value: "Home",
+    },
+    {
+      id: "Books",
+      to: "/List",
+      value: "Books",
+    },
+    {
+      id: "Add",
+      to: "/Add",
+      value: "Add",
+    },
+  ];
   return (
     <nav className={Style.container}>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/List">Books</NavLink>
-      <NavLink to="/add">Bookadd</NavLink>
+      {navLinks.map((link) => {
+        return (
+          <NavLink
+            key={link.id}
+            to={link.to}
+            end
+            className={({ isActive }) => (isActive ? Style.active : undefined)}
+          >
+            {link.value}
+          </NavLink>
+        );
+      })}
     </nav>
   );
+
+  /* return (
+    <nav className={Style.container}>
+      {/*when the link isActive it will do css changes */
+  /*} <NavLink
+        to="/"
+        end
+        className={({ isActive }) => (isActive ? Style.active : undefined)}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/List"
+        className={({ isActive }) => (isActive ? Style.active : undefined)}
+      >
+        Books
+      </NavLink>
+      <NavLink
+        to="/add"
+        className={({ isActive }) => (isActive ? Style.active : undefined)}
+      >
+        Bookadd
+      </NavLink>
+ </nav>
+ );*/
 };
 export default SiteLayout;
-
-/*<nav
-  style={{
-    width: 200,
-    display: "flex",
-    justifyContent: "space-evenly",
-  }}
->
-  <NavLink to="/" end>
-    Home
-  </NavLink>
-  <NavLink to="/list">Books</NavLink>
-  <NavLink to="/add">Bookadd</NavLink>
-</nav>;*/
