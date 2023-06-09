@@ -7,11 +7,12 @@ import UserForm from "./app/module/User/UserForm";
 function App() {
   return (
     <BrowserRouter>
-      <SiteLayout />
       <Routes>
-        <Route path="/" element={<UserList />}></Route>
-        <Route path="/list" element={<>Books</>}></Route>
-        <Route path="/add" element={<UserForm />}></Route>
+        <Route path="/" element={<SiteLayout />}>
+          <Route index element={<UserList />}></Route>
+          <Route path="/list" element={<>Books</>}></Route>
+          <Route path="/add" element={<UserForm />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

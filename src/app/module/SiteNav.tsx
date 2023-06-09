@@ -1,3 +1,9 @@
+/**
+ * Author: Pernilla Stalbring Solino-Moreno
+ * Date: Jun 2023
+ *
+ * This file is a for thathopfully controll my navigation.
+ */
 import { NavLink } from "react-router-dom";
 import Style from "./SiteNavStyle.module.css";
 

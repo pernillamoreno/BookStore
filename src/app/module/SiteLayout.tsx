@@ -1,3 +1,10 @@
+/**
+ * Author: Pernilla Stalbring Solino-Moreno
+ * Date: Jun 2023
+ *
+ * This is file is layout for my site layout page
+ */
+import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
 import SiteNav from "./SiteNav";
 
@@ -12,7 +19,10 @@ const SiteLayout = () => {
 
       <section className={Style["content-section"]}>
         <SiteNav />
-        <div>Detta är temp</div>
+        <main>
+          {/*Outlet does: whatever route (in App.tsx) is match it will render in this location*/}
+          <Outlet />
+        </main>
       </section>
     </>
   );
