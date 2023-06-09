@@ -1,4 +1,5 @@
 import Style from "./SiteLayoutStyle.module.css";
+import SiteNav from "./SiteNav";
 
 const SiteLayout = () => {
   return (
@@ -10,6 +11,7 @@ const SiteLayout = () => {
       </article>
 
       <section className={Style["content-section"]}>
+        <SiteNav />
         <div>Detta är temp</div>
       </section>
     </>

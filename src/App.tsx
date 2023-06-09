@@ -5,7 +5,8 @@ import SiteLayout from "./app/module/SiteLayout";
 function App() {
   return (
     <BrowserRouter>
-      <nav
+      <SiteLayout />
+      {/* <nav
         style={{
           width: 200,
           display: "flex",
@@ -17,14 +18,12 @@ function App() {
         </NavLink>
         <NavLink to="/list">Books</NavLink>
         <NavLink to="/add">Bookadd</NavLink>
-      </nav>
+      </nav>*/}
       <Routes>
         <Route path="/" element={<>Home</>}></Route>
         <Route path="/list" element={<>Books</>}></Route>
         <Route path="/add" element={<>Bookadd</>}></Route>
       </Routes>
-
-      {/* <SiteLayout />*/}
     </BrowserRouter>
   );
 }
