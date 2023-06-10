@@ -37,9 +37,22 @@
     transform: translateY(0px);
   }
 }
-
-a.active {
-  font-size: x-large;
-  color: rgb(127, 163, 238);
-  
+/*css styling for UserList*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+

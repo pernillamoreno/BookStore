@@ -8,14 +8,16 @@ const UserList = () => {
   return (
     <table>
       <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Purchase</th>
+        <th>Action</th>
       </tr>
       <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
+        <td>&#128512;</td>
+        <td>&#128516;</td>
+        <td>&#128525;</td>
+        <td>&#128151;</td>
       </tr>
     </table>
   );
