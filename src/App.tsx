@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SiteLayout from "./app/module/SiteLayout";
-import UserList from "./app/module/AdminFolder/AdminList";
-import UserForm from "./app/module/AdminFolder/AdminForm";
+import AdminList from "./app/module/AdminFolder/AdminList";
+import AdminForm from "./app/module/AdminFolder/AdminForm";
 import BookList from "./app/module/AdminFolder/BookList";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SiteLayout />}>
-          <Route index element={<UserList />}></Route>
+          <Route index element={<AdminList />}></Route>
           <Route
             path="/list"
             element={
@@ -19,7 +19,7 @@ function App() {
               </>
             }
           ></Route>
-          <Route path="/add" element={<UserForm />}></Route>
+          <Route path="/add" element={<AdminForm />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
