@@ -15,6 +15,13 @@ const AdminUserList = () => {
           type="text"
           placeholder="Search user..."
         />
+        <button
+          /*temp styling*/
+          style={{ backgroundColor: "gold", float: "right" }}
+          className="Sign-btn"
+        >
+          Sign out
+        </button>
       </div>
 
       <table>

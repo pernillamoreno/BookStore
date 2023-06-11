@@ -11,14 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SiteLayout />}>
           <Route index element={<AdminUserList />}></Route>
-          <Route
-            path="/list"
-            element={
-              <>
-                <BookList></BookList>
-              </>
-            }
-          ></Route>
+          <Route path="/list" element={<BookList />}></Route>
           <Route path="/add" element={<AdminForm />}></Route>
         </Route>
       </Routes>

@@ -7,7 +7,6 @@
 import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
 import SiteNav from "./SiteNav";
-import AdminUserList from "./AdminFolder/AdminUserList";
 
 const SiteLayout = () => {
   return (
@@ -20,7 +19,7 @@ const SiteLayout = () => {
 
       <section className={Style["content-section"]}>
         <SiteNav />
-        <AdminUserList />
+
         <main>
           {/*Outlet does: whatever route (in App.tsx) is match it will render in this location*/}
           <Outlet />
