@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SiteLayout from "./app/module/SiteLayout";
-import UserList from "./app/module/User/UserList";
-import UserForm from "./app/module/User/UserForm";
-import BookList from "./app/module/User/BookList";
+import UserList from "./app/module/AdminFolder/AdminList";
+import UserForm from "./app/module/AdminFolder/AdminForm";
+import BookList from "./app/module/AdminFolder/BookList";
 
 function App() {
   return (

@@ -5,12 +5,13 @@
  * This file is a temp file for a Admin & user file.
  */
 /*import Style from "./SiteLayoutStyle.module.css";*/
-const UserList = () => {
+const AdminList = () => {
   return (
     <>
-      <div className="User-serch">
+      <div className="Admin-serch">
+        <h1>Admin Page</h1>
         <input
-          className="User-field"
+          className="Admin-field"
           type="text"
           placeholder="Search user..."
         />
@@ -36,4 +37,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default AdminList;

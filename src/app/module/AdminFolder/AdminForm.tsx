@@ -4,8 +4,8 @@
  *
  * This for a file is a for a Userform
  */
-const UserForm = () => {
+const AdminForm = () => {
   return <div>Tis is user form page</div>;
 };
 
-export default UserForm;
+export default AdminForm;

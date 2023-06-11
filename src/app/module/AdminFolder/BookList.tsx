@@ -8,6 +8,7 @@ const BookList = () => {
   return (
     <>
       <div className="Book-search">
+        <h1>Admin Page</h1>
         <input
           className="Book-field"
           type="text"

@@ -12,7 +12,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-interface IUser {
+interface IAdmin {
     id: number;
     Username: string;
     Role: string;
@@ -25,17 +25,17 @@ enum ApiStatus {
     "success",
     "error"
 }
-interface IUserState {
-    list : IUser[],
+interface IAdminState {
+    list : IAdmin[],
     listStatus: ApiStatus
 
 }
-const initialState: IUserState = {
+const initialState: IAdminState = {
     list:[],
     listStatus: ApiStatus.ideal,
 };
 
-const userSlice = createSlice({
+const adminSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
@@ -43,4 +43,4 @@ const userSlice = createSlice({
     }
 });
 
-export default userSlice.reducer
+export default adminSlice.reducer
