@@ -5,7 +5,7 @@
  * This file is a temp file for a Admin & user file.
  */
 /*import Style from "./SiteLayoutStyle.module.css";*/
-const AdminList = () => {
+const AdminUserList = () => {
   return (
     <>
       <div className="Admin-serch">
@@ -37,4 +37,4 @@ const AdminList = () => {
   );
 };
 
-export default AdminList;
+export default AdminUserList;
