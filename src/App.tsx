@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SiteLayout from "./app/module/SiteLayout";
 import UserList from "./app/module/User/UserList";
