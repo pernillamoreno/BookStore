@@ -7,14 +7,13 @@
 const BookList = () => {
   return (
     <>
-      <div className="Book-serch">
-        <p>Search: </p>
+      <div className="Book-search">
         <input
           className="Book-field"
           type="text"
           placeholder="Search book..."
         />
-        <button className="Book-btn">Tryck på mig</button>
+        <button className="Book-btn">Add new book</button>
       </div>
 
       <table>

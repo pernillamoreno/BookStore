@@ -4,17 +4,16 @@
  *
  * This file is a temp file for a Admin & user file.
  */
+/*import Style from "./SiteLayoutStyle.module.css";*/
 const UserList = () => {
   return (
     <>
       <div className="User-serch">
-        <p>Search: </p>
         <input
           className="User-field"
           type="text"
           placeholder="Search user..."
         />
-        <button className="User-btn">Tryck på mig</button>
       </div>
 
       <table>
