@@ -3,6 +3,7 @@ import "./App.css";
 import SiteLayout from "./app/module/SiteLayout";
 import UserList from "./app/module/User/UserList";
 import UserForm from "./app/module/User/UserForm";
+import BookList from "./app/module/User/BookList";
 
 function App() {
   return (
@@ -10,7 +11,14 @@ function App() {
       <Routes>
         <Route path="/" element={<SiteLayout />}>
           <Route index element={<UserList />}></Route>
-          <Route path="/list" element={<>Books</>}></Route>
+          <Route
+            path="/list"
+            element={
+              <>
+                <BookList></BookList>
+              </>
+            }
+          ></Route>
           <Route path="/add" element={<UserForm />}></Route>
         </Route>
       </Routes>

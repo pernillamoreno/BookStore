@@ -13,7 +13,7 @@ const SiteLayout = () => {
     {
       id: "1",
       to: "/",
-      value: "Home",
+      value: "Users",
     },
     {
       id: "2",
@@ -42,30 +42,5 @@ const SiteLayout = () => {
       })}
     </nav>
   );
-
-  /* return (
-    <nav className={Style.container}>
-      {/*when the link isActive it will do css changes */
-  /*} <NavLink
-        to="/"
-        end
-        className={({ isActive }) => (isActive ? Style.active : undefined)}
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/List"
-        className={({ isActive }) => (isActive ? Style.active : undefined)}
-      >
-        Books
-      </NavLink>
-      <NavLink
-        to="/add"
-        className={({ isActive }) => (isActive ? Style.active : undefined)}
-      >
-        Bookadd
-      </NavLink>
- </nav>
- );*/
 };
 export default SiteLayout;
