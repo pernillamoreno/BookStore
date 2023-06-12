@@ -2,9 +2,9 @@
  * Author: Pernilla Stalbring Solino-Moreno
  * Date: Jun 2023
  *
- * This file is a file for a Admin.
+ * This file is a file for a Admin page.
  */
-const BookList = () => {
+const BookAdminSearch = () => {
   return (
     <>
       <div className="Book-search">
@@ -44,4 +44,4 @@ const BookList = () => {
   );
 };
 
-export default BookList;
+export default BookAdminSearch;

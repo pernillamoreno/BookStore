@@ -2,7 +2,7 @@
  * Author: Pernilla Stalbring Solino-Moreno
  * Date: Jun 2023
  *
- * This is file is layout for my site layout page
+ * This is file is site layout for my siteNav page.
  */
 import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
@@ -19,9 +19,8 @@ const SiteLayout = () => {
 
       <section className={Style["content-section"]}>
         <SiteNav />
-
         <main>
-          {/*Outlet does: whatever route (in App.tsx) is match it will render in this location*/}
+          {/*Outlet does: whatever route (in App.tsx) is match it will render in this location. It will by default open AdminUserList */}
           <Outlet />
         </main>
       </section>

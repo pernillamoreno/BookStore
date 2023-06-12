@@ -4,8 +4,19 @@
  *
  * This file is a temp file for a Admin & user file.
  */
+
+import { useAppSelector } from "../../hooks";
+import { RootState } from "../../store";
+import { ApiStatus, IAdmin } from "./Admin.type";
+
 /*import Style from "./SiteLayoutStyle.module.css";*/
 const AdminUserList = () => {
+  /*useAppSelector from hooks.ts*/
+
+  const { list, listStatus } = useAppSelector(
+    (state: RootState) => state.admin
+  );
+
   return (
     <>
       <div className="Admin-serch">
@@ -32,13 +43,24 @@ const AdminUserList = () => {
           <th>Purchase &#128525;</th>
           <th>Action &#128151;</th>
         </tr>
-        <tr>
-          <td>ab </td>
-          <td>cd</td>
-          <td>ef</td>
-          <td>gh</td>
-          <td>action</td>
-        </tr>
+        {listStatus === ApiStatus.loading && (
+          <tbody>Loading... loading...</tbody>
+        )}
+        {listStatus === ApiStatus.error && (
+          <tbody>Error while loading...</tbody>
+        )}
+        {listStatus === ApiStatus.ideal &&
+          list.map((user: IAdmin, index: number) => {
+            return (
+              <tr>
+                <td>{index + 1} </td>
+                <td>{user.username}</td>
+                <td>{user.role}</td>
+                <td>{user.purchase}</td>
+                <td>action</td>
+              </tr>
+            );
+          })}
       </table>
     </>
   );
