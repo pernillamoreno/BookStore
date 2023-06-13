@@ -44,7 +44,7 @@ const AdminUserList = () => {
           <th>Action &#128151;</th>
         </tr>
         {listStatus === ApiStatus.loading && (
-          <tbody>Loading... loading...</tbody>
+          <tbody>List Loading... loading...</tbody>
         )}
         {listStatus === ApiStatus.error && (
           <tbody>Error while loading...</tbody>
