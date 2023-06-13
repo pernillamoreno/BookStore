@@ -11,26 +11,40 @@
  */
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ApiStatus, IAdminState, defaultList } from "./Admin.type"
+import { ApiStatus, IAdminState } from "./Admin.type"
+import { getAdminUserList } from "./AdminService";
 
 /*test defaultList from Admin.type*/
 const initialState: IAdminState = {
-    list:defaultList,
+    list: [],
     listStatus: ApiStatus.ideal,
 };
 
-const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
-    // api to get list
-    //return responce data
+export const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
+    const response = await getAdminUserList();
+    return response.data;
+    
 }
 );
 
 const adminSlice = createSlice({
     name: "admin",
     initialState,
-    reducers: {
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(getAdminUserListAction.pending, (state) => {
+            state.listStatus = ApiStatus.loading;
+        });
+        builder.addCase(getAdminUserListAction.fulfilled, (state, action) => {
+           state.listStatus = ApiStatus.ideal;
+           state.list = action.payload
+        });
+        builder.addCase(getAdminUserListAction.rejected, (state) => {
+            state.listStatus = ApiStatus.error
 
-    }
+        })
+
+    },
 });
 
-export default adminSlice.reducer
+export default adminSlice.reducer;

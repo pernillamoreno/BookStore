@@ -1,8 +1,11 @@
 import httpService from "../../../service/HttpService";
 import ApiConfig from "../../../service/ApiConfig";
+import { IAdmin } from "./Admin.type";
 
 export const getAdminUserList = async () => {
 
-    httpService.get(ApiConfig.user);
+    return await httpService.get<IAdmin[]>(ApiConfig.user);
 
-}
+};
+
+

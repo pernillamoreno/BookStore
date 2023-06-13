@@ -23,26 +23,3 @@ export interface IAdminState {
 
 }
 
-export const defaultList: IAdmin[]= [
-    {
-        id: 1,
-        username: "Bob",
-        role: "ADMIN",
-        purchase: 3, 
-
-    },
-    {
-        id: 2,
-        username: "Greta",
-        role: "ADMIN",
-        purchase: 3,
-    },
-    { 
-        id: 3,
-        username: "Yves",
-        role: "USER",
-        purchase: 3
-
-    }
-
-];

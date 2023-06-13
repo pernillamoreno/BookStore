@@ -5,6 +5,12 @@
       "username": "John",
       "role": "ADMIN",
       "purchase": 3
+    },
+    {
+      "username": "dummy",
+      "role": "ADMIN",
+      "purchase": 3,
+      "id": 2
     }
   ]
 }

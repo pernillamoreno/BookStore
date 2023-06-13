@@ -5,17 +5,23 @@
  * This file is a temp file for a Admin & user file.
  */
 
-import { useAppSelector } from "../../hooks";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { RootState } from "../../store";
 import { ApiStatus, IAdmin } from "./Admin.type";
+import { getAdminUserListAction } from "./AdminSlice";
 
 /*import Style from "./SiteLayoutStyle.module.css";*/
 const AdminUserList = () => {
   /*useAppSelector from hooks.ts*/
-
   const { list, listStatus } = useAppSelector(
     (state: RootState) => state.admin
   );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getAdminUserListAction());
+  }, []);
 
   return (
     <>
