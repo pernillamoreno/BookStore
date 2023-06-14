@@ -11,6 +11,12 @@
       "role": "ADMIN",
       "purchase": 3,
       "id": 2
+    },
+    {
+      "username": "dummy1",
+      "role": "ADMIN1",
+      "purchase": 3,
+      "id": 3
     }
   ]
 }

@@ -13,7 +13,6 @@ import { getAdminUserListAction } from "./AdminSlice";
 
 /*import Style from "./SiteLayoutStyle.module.css";*/
 const AdminUserList = () => {
-  /*useAppSelector from hooks.ts*/
   const { list, listStatus } = useAppSelector(
     (state: RootState) => state.admin
   );
