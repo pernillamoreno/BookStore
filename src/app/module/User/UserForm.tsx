@@ -6,24 +6,32 @@
  * For improvment it will mabey change name or i will change the location.
  *
  */
+
+import { ChangeEvent, useState } from "react";
+import Input from "../../../components/Input/Input";
 import Style from "./UserFormStyle.module.css";
 
 const UserForm = () => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className={Style.container}>
       <form className={Style.form}>
-        <div>
-          <label>Name:</label>
-          <div>
-            <input type="text" value="" />
-          </div>
-        </div>
-        <div>
-          <label>Password:</label>
-          <div>
-            <input type="password" value="" />
-          </div>
-        </div>
+        <Input
+          label="Name"
+          value={name}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setName(e.target.value);
+          }}
+        />
+        <Input
+          label="Password"
+          value={password}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setPassword(e.target.value);
+          }}
+        />
         <div className={Style["btn-wrapper"]}>
           <input type="submit" value="Add user" />
         </div>

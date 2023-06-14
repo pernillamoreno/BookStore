@@ -1,9 +1,31 @@
-const Input = () => {
+/**
+ * Author: Pernilla Stalbring Solino-Moreno
+ * Date: Jun 2023
+ *
+ * This file store labels,value and type etc from UserForm.
+ */
+import { ChangeEvent } from "react";
+import Style from "./InputStyle.module.css";
+
+interface IProps {
+  label: string;
+  value: string | number;
+  type?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+/*Here is the Inputs in my Userform.*/
+const Input = (props: IProps) => {
+  const { label, value, type = "text", onChange } = props;
   return (
-    <div>
-      <label>Name:</label>
+    <div className={Style.container}>
+      <label>{label}:</label>
       <div>
-        <input type="text" value="" />
+        <input
+          type={type}
+          value={value}
+          className={Style.input}
+          onChange={onChange}
+        />
       </div>
     </div>
   );
