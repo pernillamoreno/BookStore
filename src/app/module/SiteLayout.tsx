@@ -7,7 +7,7 @@
 import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
 import SiteNav from "./SiteNav";
-import AdminUserForm from "./AdminFolder/AdminUserForm";
+/*import AdminUserForm from "./AdminFolder/AdminUserForm";*/
 
 const SiteLayout = () => {
   return (
@@ -20,7 +20,7 @@ const SiteLayout = () => {
 
       <section className={Style["content-section"]}>
         <SiteNav />
-        <AdminUserForm />
+
         <main>
           {/*Outlet does: whatever route (in App.tsx) is match it will render in this location. It will by default open AdminUserList */}
           <Outlet />

@@ -13,7 +13,7 @@ const SiteLayout = () => {
     {
       id: "1",
       to: "/",
-      value: "Home",
+      value: "Users",
     },
     {
       id: "2",
@@ -23,7 +23,7 @@ const SiteLayout = () => {
     {
       id: "3",
       to: "/Add",
-      value: "Users",
+      value: "Sign in",
     },
   ];
   return (

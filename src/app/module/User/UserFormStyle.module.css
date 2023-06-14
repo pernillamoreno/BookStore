@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.form {
+    width:200px;
+
+
+
+}
+.btn-wrapper{
+    float:right;
+    margin-top: 10px;
+   
+}
