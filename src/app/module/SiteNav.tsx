@@ -23,7 +23,7 @@ const SiteLayout = () => {
     {
       id: "3",
       to: "/Add",
-      value: "Sign in",
+      value: "Register",
     },
   ];
   return (
