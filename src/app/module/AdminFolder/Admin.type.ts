@@ -23,4 +23,9 @@ export interface IAdminState {
     listStatus: ApiStatus;
 
 }
+export interface IUserForm {
+    name: string;
+    password: string | number;
+
+}
 

@@ -2,7 +2,7 @@
  * Author: Pernilla Stalbring Solino-Moreno
  * Date: Jun 2023
  *
- * This file is a temp file for a Admin & user file.
+ * This file is a file for a Admin file.
  */
 
 import { useEffect } from "react";

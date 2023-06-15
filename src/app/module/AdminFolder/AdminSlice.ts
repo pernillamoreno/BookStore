@@ -11,8 +11,8 @@
  */
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ApiStatus, IAdminState } from "./Admin.type"
-import { getAdminUserList } from "./AdminService";
+import { ApiStatus, IAdminState, IUserForm } from "./Admin.type"
+import { createAdminUserApi, getAdminUserListApi } from "./AdminService";
 
 /*test defaultList from Admin.type*/
 const initialState: IAdminState = {
@@ -21,11 +21,16 @@ const initialState: IAdminState = {
 };
 
 export const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
-    const response = await getAdminUserList();
-    return response.data;
-    
+    const response = await getAdminUserListApi();
+    return response.data;   
 }
 );
+
+export const createAdminUserAction = createAsyncThunk("user/createAdminUserAction", async (data: IUserForm) => {
+   const response = await createAdminUserApi(data);
+   return response.data;
+  
+})
 
 const adminSlice = createSlice({
     name: "admin",
