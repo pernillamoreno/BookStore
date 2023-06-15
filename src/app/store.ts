@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import adminReducer from "./module/AdminFolder/AdminSlice"
+import adminReducer from "./module/AdminUserFolder/AdminSlice"
 
 
 export const store = configureStore({

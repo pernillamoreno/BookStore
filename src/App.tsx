@@ -8,9 +8,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SiteLayout from "./app/module/SiteLayout";
-import BookList from "./app/module/AdminFolder/BookAdminSearch";
-import AdminUserList from "./app/module/AdminFolder/AdminUserList";
-import UserForm from "./app/module/AdminFolder/UserForm";
+import BookList from "./app/module/AdminUserFolder/BookAdminSearch";
+import AdminUserList from "./app/module/AdminUserFolder/AdminUserList";
+import UserForm from "./app/module/AdminUserFolder/UserForm";
 
 function App() {
   return (
