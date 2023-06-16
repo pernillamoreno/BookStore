@@ -12,5 +12,9 @@ export const createAdminUserApi = async (data: IUserForm) => {
    return await httpService.post<IAdmin>(ApiConfig.user, data)
 
 };
+export const deleteAdminUserApi = async (id: number) => {
+    const url = `${ApiConfig.user}/${id}`;
+    return await httpService.delete(url);
+  };
 
 

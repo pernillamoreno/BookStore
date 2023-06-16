@@ -12,7 +12,7 @@
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiStatus, IAdminState, IUserForm } from "./Admin.type"
-import { createAdminUserApi, getAdminUserListApi } from "./AdminService";
+import { createAdminUserApi, deleteAdminUserApi, getAdminUserListApi } from "./AdminService";
 
 /*test defaultList from Admin.type*/
 const initialState: IAdminState = {
@@ -21,17 +21,24 @@ const initialState: IAdminState = {
     createUserFormStatus: ApiStatus.ideal
 };
 
-export const getAdminUserListAction = createAsyncThunk("admin/getAdminUserListAction", async () => {
+export const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
     const response = await getAdminUserListApi();
     return response.data;   
 }
 );
 
-export const createAdminUserAction = createAsyncThunk("admin/createAdminUserAction", async (data: IUserForm) => {
+export const createAdminUserAction = createAsyncThunk("user/createAdminUserAction", async (data: IUserForm) => {
    const response = await createAdminUserApi(data);
    return response.data;
   
 })
+export const deleteUserAction = createAsyncThunk(
+    "user/deleteAdminUserAction",
+    async (id: number) => {
+      await deleteAdminUserApi(id);
+      return id;
+    }
+  );
 
 const adminSlice = createSlice({
     name: "admin",
@@ -61,6 +68,10 @@ const adminSlice = createSlice({
         builder.addCase(createAdminUserAction.rejected, (state) => {
             state.createUserFormStatus= ApiStatus.error
         });
+        builder.addCase(deleteUserAction.fulfilled, (state, action) => {
+            const newList = state.list.filter((x) => x.id !== action.payload);
+            state.list = newList;
+          });
 
     },
 });

@@ -1,22 +1,10 @@
 {
   "user": [
     {
-      "id": 1,
-      "username": "John",
-      "role": "ADMIN",
-      "purchase": 3
-    },
-    {
       "username": "dummy",
       "role": "ADMIN",
       "purchase": 3,
       "id": 2
-    },
-    {
-      "username": "dummy1",
-      "role": "ADMIN1",
-      "purchase": 3,
-      "id": 3
     },
     {
       "username": "hejhej",

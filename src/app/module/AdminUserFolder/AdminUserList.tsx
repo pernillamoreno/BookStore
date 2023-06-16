@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { RootState } from "../../store";
 import { ApiStatus, IAdmin } from "./Admin.type";
-import { getAdminUserListAction } from "./AdminSlice";
+import { deleteUserAction, getAdminUserListAction } from "./AdminSlice";
 import { Modal } from "../../../components/Modal";
 
 const AdminUserList = () => {
@@ -71,7 +71,13 @@ const AdminUserList = () => {
                       }}
                     />
                     <input type="button" value="Edit" />
-                    <input type="button" value="Delete" />
+                    <input
+                      type="button"
+                      value="Delete"
+                      onClick={() => {
+                        dispatch(deleteUserAction(user.id));
+                      }}
+                    />
                   </div>
                 </td>
               </tr>
