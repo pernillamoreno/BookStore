@@ -21,13 +21,13 @@ const initialState: IAdminState = {
     createUserFormStatus: ApiStatus.ideal
 };
 
-export const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
+export const getAdminUserListAction = createAsyncThunk("admin/getAdminUserListAction", async () => {
     const response = await getAdminUserListApi();
     return response.data;   
 }
 );
 
-export const createAdminUserAction = createAsyncThunk("user/createAdminUserAction", async (data: IUserForm) => {
+export const createAdminUserAction = createAsyncThunk("admin/createAdminUserAction", async (data: IUserForm) => {
    const response = await createAdminUserApi(data);
    return response.data;
   

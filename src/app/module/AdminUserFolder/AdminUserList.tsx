@@ -5,14 +5,15 @@
  * This file is a file for a Admin file.
  */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { RootState } from "../../store";
 import { ApiStatus, IAdmin } from "./Admin.type";
 import { getAdminUserListAction } from "./AdminSlice";
+import { Modal } from "../../../components/Modal";
 
-/*import Style from "./SiteLayoutStyle.module.css";*/
 const AdminUserList = () => {
+  const [userDataToView, setUserDatatoView] = useState<IAdmin | null>(null);
   const { list, listStatus } = useAppSelector(
     (state: RootState) => state.admin
   );
@@ -60,11 +61,40 @@ const AdminUserList = () => {
                 <td>{index + 1} </td>
                 <td>{user.username}</td>
                 <td>{user.password}</td>
-                <td>action</td>
+                <td>
+                  <div>
+                    <input
+                      type="button"
+                      value="View"
+                      onClick={() => {
+                        setUserDatatoView(user);
+                      }}
+                    />
+                    <input type="button" value="Edit" />
+                    <input type="button" value="Delete" />
+                  </div>
+                </td>
               </tr>
             );
           })}
       </table>
+      {userDataToView && (
+        <Modal
+          title="User Details "
+          onClose={() => {
+            setUserDatatoView(null);
+          }}
+        >
+          <div>
+            <div>
+              <label>Username: {userDataToView.username}</label>
+            </div>
+            <div>
+              <label>Password: {userDataToView.password}</label>
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };
