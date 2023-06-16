@@ -36,7 +36,11 @@ export const createAdminUserAction = createAsyncThunk("user/createAdminUserActio
 const adminSlice = createSlice({
     name: "admin",
     initialState,
-    reducers: {},
+    reducers: {
+        resetCreateListStatus : (state) => {
+           state.createUserFormStatus = ApiStatus.ideal
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(getAdminUserListAction.pending, (state) => {
             state.listStatus = ApiStatus.loading;
@@ -62,3 +66,4 @@ const adminSlice = createSlice({
 });
 
 export default adminSlice.reducer;
+export const { resetCreateListStatus } = adminSlice.actions

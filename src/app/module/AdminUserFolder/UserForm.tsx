@@ -7,17 +7,21 @@
  *
  */
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Input from "../../../components/Input/Input";
 import Style from "./UserFormStyle.module.css";
-import { useAppDispatch } from "../../hooks";
-import { createAdminUserAction } from "./AdminSlice";
-import { IUserForm } from "./Admin.type";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { createAdminUserAction, resetCreateListStatus } from "./AdminSlice";
+import { ApiStatus, IUserForm } from "./Admin.type";
+import { RootState } from "../../store";
 
 const UserForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const { createUserFormStatus } = useAppSelector(
+    (state: RootState) => state.admin
+  );
   const dispatch = useAppDispatch();
 
   /*funtion and call onSubmitForm*/
@@ -27,6 +31,14 @@ const UserForm = () => {
     const data: IUserForm = { username, password };
     dispatch(createAdminUserAction(data));
   };
+
+  useEffect(() => {
+    if (createUserFormStatus === ApiStatus.success) {
+      setUsername("");
+      setPassword("");
+      dispatch(resetCreateListStatus());
+    }
+  }, [createUserFormStatus]);
 
   return (
     <div className={Style.container}>
@@ -46,7 +58,7 @@ const UserForm = () => {
           }}
         />
         <div className={Style["btn-wrapper"]}>
-          <input type="submit" value="Add user" />
+          <input type="submit" value="Create" />
         </div>
       </form>
     </div>

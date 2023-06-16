@@ -19,34 +19,14 @@
       "id": 3
     },
     {
-      "name": "bobbb",
-      "password": "bobbb",
+      "username": "hejhej",
+      "password": "123",
       "id": 4
     },
     {
-      "username": "dummy1",
-      "Password": "ADMIN1",
+      "username": "",
+      "password": "",
       "id": 5
-    },
-    {
-      "username": "nndum",
-      "Password": "ADMIN1",
-      "id": 6
-    },
-    {
-      "name": "<c<c<",
-      "password": "ccc",
-      "id": 7
-    },
-    {
-      "username": "hejhej",
-      "password": "korv",
-      "id": 8
-    },
-    {
-      "username": "bläää",
-      "password": "skit",
-      "id": 9
     }
   ]
 }
