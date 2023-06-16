@@ -10,19 +10,32 @@
 import { ChangeEvent, useState } from "react";
 import Input from "../../../components/Input/Input";
 import Style from "./UserFormStyle.module.css";
+import { useAppDispatch } from "../../hooks";
+import { createAdminUserAction } from "./AdminSlice";
+import { IUserForm } from "./Admin.type";
 
 const UserForm = () => {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useAppDispatch();
+
+  /*funtion and call onSubmitForm*/
+  const onSubmitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const data: IUserForm = { username, password };
+    dispatch(createAdminUserAction(data));
+  };
 
   return (
     <div className={Style.container}>
-      <form className={Style.form}>
+      <form className={Style.form} onSubmit={onSubmitForm}>
         <Input
           label="Name"
-          value={name}
+          value={username}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setName(e.target.value);
+            setUsername(e.target.value);
           }}
         />
         <Input

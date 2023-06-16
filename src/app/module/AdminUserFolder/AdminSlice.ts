@@ -18,6 +18,7 @@ import { createAdminUserApi, getAdminUserListApi } from "./AdminService";
 const initialState: IAdminState = {
     list: [],
     listStatus: ApiStatus.ideal,
+    createUserFormStatus: ApiStatus.ideal
 };
 
 export const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
@@ -46,8 +47,16 @@ const adminSlice = createSlice({
         });
         builder.addCase(getAdminUserListAction.rejected, (state) => {
             state.listStatus = ApiStatus.error
-
-        })
+        });
+        builder.addCase(createAdminUserAction.pending, (state) => {
+            state.createUserFormStatus = ApiStatus.loading;
+        });
+        builder.addCase(createAdminUserAction.fulfilled, (state, action) => {
+           state.createUserFormStatus = ApiStatus.ideal;
+        });
+        builder.addCase(createAdminUserAction.rejected, (state) => {
+            state.createUserFormStatus= ApiStatus.error
+        });
 
     },
 });

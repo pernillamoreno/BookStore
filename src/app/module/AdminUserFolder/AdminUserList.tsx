@@ -44,8 +44,7 @@ const AdminUserList = () => {
         <tr>
           <th>id &#128516;</th>
           <th>Username &#128512;</th>
-          <th>Role &#128516;</th>
-          <th>Purchase &#128525;</th>
+          <th>Password &#128516;</th>
           <th>Action &#128151;</th>
         </tr>
         {listStatus === ApiStatus.loading && (
@@ -60,8 +59,7 @@ const AdminUserList = () => {
               <tr>
                 <td>{index + 1} </td>
                 <td>{user.username}</td>
-                <td>{user.role}</td>
-                <td>{user.purchase}</td>
+                <td>{user.password}</td>
                 <td>action</td>
               </tr>
             );

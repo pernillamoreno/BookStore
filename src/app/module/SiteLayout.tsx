@@ -7,7 +7,6 @@
 import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
 import SiteNav from "./SiteNav";
-/*import AdminUserForm from "./AdminFolder/AdminUserForm";*/
 
 const SiteLayout = () => {
   return (

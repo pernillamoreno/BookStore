@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
  /**
  * Author: Pernilla Stalbring Solino-Moreno
  * Date: Jun 2023
@@ -6,6 +8,7 @@
  * clean up AdminSlice.In this file i can write types i can use as AdminSlice.
  */
  export interface IAdmin {
+    password: ReactNode;
     id: number;
     username: string;
     role: string;
@@ -21,10 +24,11 @@ export enum ApiStatus {
 export interface IAdminState {
     list : IAdmin[],
     listStatus: ApiStatus;
+    createUserFormStatus: ApiStatus
 
 }
 export interface IUserForm {
-    name: string;
+    username: string;
     password: string | number;
 
 }
