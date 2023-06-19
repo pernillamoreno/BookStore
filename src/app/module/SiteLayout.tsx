@@ -8,8 +8,6 @@ import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
 import SiteNav from "./SiteNav";
 
-import "react-toastify/dist/ReactToastify.css";
-
 const SiteLayout = () => {
   return (
     <>

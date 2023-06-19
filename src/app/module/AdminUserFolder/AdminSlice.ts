@@ -15,6 +15,7 @@ import { ApiStatus, IAdminState, IUpdateAdminUserActionProps, IUserForm } from "
 import { createAdminUserApi, deleteAdminUserApi, getAdminUserListApi, updateAdminUserApi } from "./AdminService";
 
 
+
 /*test defaultList from Admin.type*/
 const initialState: IAdminState = {
     list: [],
@@ -90,10 +91,12 @@ const adminSlice = createSlice({
           });
           builder.addCase(updateAdminUserAction.fulfilled, (state) => {
             state.updateUserFormStatus = ApiStatus.ideal;
+          
            
           });
           builder.addCase(updateAdminUserAction.rejected, (state) => {
             state.updateUserFormStatus = ApiStatus.error;
+            
             
           });
         },
@@ -101,3 +104,7 @@ const adminSlice = createSlice({
 
 export default adminSlice.reducer;
 export const { resetCreateListStatus } = adminSlice.actions;
+
+function toastError(arg0: string) {
+    throw new Error("Function not implemented.");
+}
