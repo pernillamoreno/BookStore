@@ -11,6 +11,8 @@
     id: number;
     username: string;
     password: string;
+    role: string;
+
 }
 
 export enum ApiStatus {
@@ -22,19 +24,22 @@ export enum ApiStatus {
 export interface IAdminState {
     list : IAdmin[],
     listStatus: ApiStatus;
-    createUserFormStatus: ApiStatus
+    createUserFormStatus: ApiStatus;
+    updateUserFormStatus: ApiStatus;
    
 }
 
 
 export interface IUserForm {
     username: string;
-    password: string | number;
+    password: string;
+    role:string;
 
 }
 
-export interface IUpdateUserActionProps {
-    id: number;
+export interface IUpdateAdminUserActionProps {
+    id : number;
     data: IUserForm;
+
   }
 

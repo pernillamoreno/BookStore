@@ -8,6 +8,8 @@ import { Outlet } from "react-router-dom";
 import Style from "./SiteLayoutStyle.module.css";
 import SiteNav from "./SiteNav";
 
+import "react-toastify/dist/ReactToastify.css";
+
 const SiteLayout = () => {
   return (
     <>
@@ -20,7 +22,7 @@ const SiteLayout = () => {
       <section className={Style["content-section"]}>
         <SiteNav />
 
-        <main>
+        <main className={Style["main-content"]}>
           {/*Outlet does: whatever route (in App.tsx) is match it will render in this location. It will by default open AdminUserList */}
           <Outlet />
         </main>

@@ -11,14 +11,16 @@
  */
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ApiStatus, IAdminState, IUserForm } from "./Admin.type"
-import { createAdminUserApi, deleteAdminUserApi, getAdminUserListApi } from "./AdminService";
+import { ApiStatus, IAdminState, IUpdateAdminUserActionProps, IUserForm } from "./Admin.type"
+import { createAdminUserApi, deleteAdminUserApi, getAdminUserListApi, updateAdminUserApi } from "./AdminService";
+
 
 /*test defaultList from Admin.type*/
 const initialState: IAdminState = {
     list: [],
     listStatus: ApiStatus.ideal,
-    createUserFormStatus: ApiStatus.ideal
+    createUserFormStatus: ApiStatus.ideal,
+    updateUserFormStatus: ApiStatus.ideal,
 };
 
 export const getAdminUserListAction = createAsyncThunk("user/getAdminUserListAction", async () => {
@@ -31,12 +33,20 @@ export const createAdminUserAction = createAsyncThunk("user/createAdminUserActio
    const response = await createAdminUserApi(data);
    return response.data;
   
-})
-export const deleteUserAction = createAsyncThunk(
+});
+export const deleteAdminUserAction = createAsyncThunk(
     "user/deleteAdminUserAction",
     async (id: number) => {
       await deleteAdminUserApi(id);
       return id;
+    }
+  );
+  
+  export const updateAdminUserAction = createAsyncThunk(
+    "user/updateAdminUserAction",
+    async ({ id, data }: IUpdateAdminUserActionProps) => {
+      const response = await updateAdminUserApi(id, data);
+      return response.data;
     }
   );
 
@@ -63,18 +73,31 @@ const adminSlice = createSlice({
             state.createUserFormStatus = ApiStatus.loading;
         });
         builder.addCase(createAdminUserAction.fulfilled, (state, action) => {
-           state.createUserFormStatus = ApiStatus.ideal;
+           state.createUserFormStatus = ApiStatus.success;
+          
         });
         builder.addCase(createAdminUserAction.rejected, (state) => {
-            state.createUserFormStatus= ApiStatus.error
+            state.createUserFormStatus= ApiStatus.error;
+           
         });
-        builder.addCase(deleteUserAction.fulfilled, (state, action) => {
+
+        builder.addCase(deleteAdminUserAction.fulfilled, (state, action) => {
             const newList = state.list.filter((x) => x.id !== action.payload);
             state.list = newList;
           });
-
-    },
-});
+          builder.addCase(updateAdminUserAction.pending, (state) => {
+            state.updateUserFormStatus = ApiStatus.loading;
+          });
+          builder.addCase(updateAdminUserAction.fulfilled, (state) => {
+            state.updateUserFormStatus = ApiStatus.ideal;
+           
+          });
+          builder.addCase(updateAdminUserAction.rejected, (state) => {
+            state.updateUserFormStatus = ApiStatus.error;
+            
+          });
+        },
+      });
 
 export default adminSlice.reducer;
-export const { resetCreateListStatus } = adminSlice.actions
+export const { resetCreateListStatus } = adminSlice.actions;

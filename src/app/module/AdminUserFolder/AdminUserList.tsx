@@ -9,8 +9,9 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { RootState } from "../../store";
 import { ApiStatus, IAdmin } from "./Admin.type";
-import { deleteUserAction, getAdminUserListAction } from "./AdminSlice";
+import { deleteAdminUserAction, getAdminUserListAction } from "./AdminSlice";
 import { Modal } from "../../../components/Modal";
+import { useNavigate } from "react-router-dom";
 
 const AdminUserList = () => {
   const [userDataToView, setUserDatatoView] = useState<IAdmin | null>(null);
@@ -19,33 +20,20 @@ const AdminUserList = () => {
   );
   const dispatch = useAppDispatch();
 
+  const navigator = useNavigate();
+
   useEffect(() => {
     dispatch(getAdminUserListAction());
   }, []);
 
   return (
     <>
-      <div className="Admin-serch">
-        <h1>Admin Page</h1>
-        <input
-          className="Admin-field"
-          type="text"
-          placeholder="Search user..."
-        />
-        <button
-          /*temp styling*/
-          style={{ backgroundColor: "gold", float: "right" }}
-          className="Sign-btn"
-        >
-          Sign out
-        </button>
-      </div>
-
       <table>
         <tr>
           <th>id &#128516;</th>
           <th>Username &#128512;</th>
           <th>Password &#128516;</th>
+          <th>Role &#128516;</th>
           <th>Action &#128151;</th>
         </tr>
         {listStatus === ApiStatus.loading && (
@@ -61,6 +49,7 @@ const AdminUserList = () => {
                 <td>{index + 1} </td>
                 <td>{user.username}</td>
                 <td>{user.password}</td>
+                <td>{user.role}</td>
                 <td>
                   <div>
                     <input
@@ -70,12 +59,18 @@ const AdminUserList = () => {
                         setUserDatatoView(user);
                       }}
                     />
-                    <input type="button" value="Edit" />
+                    <input
+                      type="button"
+                      value="Edit"
+                      onClick={() => {
+                        navigator(`/edit/${user.id}`);
+                      }}
+                    />
                     <input
                       type="button"
                       value="Delete"
                       onClick={() => {
-                        dispatch(deleteUserAction(user.id));
+                        dispatch(deleteAdminUserAction(user.id));
                       }}
                     />
                   </div>
@@ -97,6 +92,9 @@ const AdminUserList = () => {
             </div>
             <div>
               <label>Password: {userDataToView.password}</label>
+            </div>
+            <div>
+              <label>Role: {userDataToView.role}</label>
             </div>
           </div>
         </Modal>

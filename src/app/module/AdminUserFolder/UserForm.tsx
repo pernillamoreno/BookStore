@@ -7,19 +7,52 @@
  *
  */
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import Input from "../../../components/Input/Input";
 import Style from "./UserFormStyle.module.css";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { createAdminUserAction, resetCreateListStatus } from "./AdminSlice";
-import { ApiStatus, IUserForm } from "./Admin.type";
+import {
+  createAdminUserAction,
+  resetCreateListStatus,
+  updateAdminUserAction,
+} from "./AdminSlice";
+import {
+  ApiStatus,
+  IUpdateAdminUserActionProps,
+  IUserForm,
+} from "./Admin.type";
 import { RootState } from "../../store";
+import { useParams } from "react-router-dom";
 
-const UserForm = () => {
+interface IProps {
+  isEditForm?: boolean;
+}
+
+const UserForm = (props: IProps) => {
+  const { isEditForm } = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [Role, setRole] = useState("");
 
-  const { createUserFormStatus } = useAppSelector(
+  const params = useParams();
+  const userIdToEdit = useRef(parseInt(params.id || ""));
+
+  const { list } = useAppSelector((state: RootState) => state.admin);
+
+  useEffect(() => {
+    if (isEditForm && userIdToEdit.current) {
+      // list of user
+      const userData = list.filter((x) => x.id === userIdToEdit.current);
+
+      if (userData.length) {
+        setUsername(userData[0].username);
+        setPassword(userData[0].password);
+        setRole(userData[0].role);
+      }
+    }
+  }, [isEditForm]);
+
+  const { createUserFormStatus, updateUserFormStatus } = useAppSelector(
     (state: RootState) => state.admin
   );
   const dispatch = useAppDispatch();
@@ -28,17 +61,32 @@ const UserForm = () => {
   const onSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const data: IUserForm = { username, password };
-    dispatch(createAdminUserAction(data));
+    const data: IUserForm = { username, password, role: "" };
+
+    if (isEditForm) {
+      const dirtyFormData: IUpdateAdminUserActionProps = {
+        id: userIdToEdit.current,
+        data,
+      };
+      dispatch(updateAdminUserAction(dirtyFormData));
+    } else {
+      const data: IUserForm = {
+        username,
+        password,
+        role: "",
+      };
+      dispatch(createAdminUserAction(data));
+    }
   };
 
   useEffect(() => {
     if (createUserFormStatus === ApiStatus.success) {
       setUsername("");
       setPassword("");
+      setRole("");
       dispatch(resetCreateListStatus());
     }
-  }, [createUserFormStatus]);
+  }, [createUserFormStatus, dispatch]);
 
   return (
     <div className={Style.container}>
@@ -57,8 +105,22 @@ const UserForm = () => {
             setPassword(e.target.value);
           }}
         />
+        <Input
+          label="Role"
+          value={Role}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setRole(e.target.value);
+          }}
+        />
         <div className={Style["btn-wrapper"]}>
-          <input type="submit" value="Create" />
+          <input
+            type="submit"
+            value={isEditForm ? "Update" : "Create"}
+            disabled={
+              createUserFormStatus === ApiStatus.loading ||
+              updateUserFormStatus === ApiStatus.loading
+            }
+          />
         </div>
       </form>
     </div>
