@@ -88,7 +88,7 @@ const bookSlice = createSlice({
       });
 
 export default bookSlice.reducer;
-export const { resetCreateListStatus } = bookSlice.actions;
+export const { resetCreateBookListStatus } = bookSlice.actions;
 
 
 
