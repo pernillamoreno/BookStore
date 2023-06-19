@@ -2,12 +2,6 @@ import { AsyncThunkAction, Dispatch, AnyAction } from "@reduxjs/toolkit";
 import { Modal } from "../../../components/Modal";
 import { ApiStatus, IBook } from "./Book.type";
 
-/**
- * Author: Pernilla Stalbring Solino-Moreno
- * Date: Jun 2023
- *
- * This file is a file for a Admin page.
- */
 const BookList = () => {
   function setUserDatatoView(arg0: null) {
     throw new Error("Function not implemented.");
