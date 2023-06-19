@@ -9,7 +9,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SiteLayout from "./app/module/SiteLayout";
-import BookList from "./app/module/BookFolder/BookList";
+
 import AdminUserList from "./app/module/AdminUserFolder/AdminUserList";
 import UserForm from "./app/module/AdminUserFolder/UserForm";
 
@@ -24,7 +24,6 @@ function App() {
             path="/edit/:id"
             element={<UserForm isEditForm={true} />}
           ></Route>
-          <Route path="/list" element={<BookList />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
