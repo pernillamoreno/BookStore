@@ -105,6 +105,4 @@ const adminSlice = createSlice({
 export default adminSlice.reducer;
 export const { resetCreateListStatus } = adminSlice.actions;
 
-function toastError(arg0: string) {
-    throw new Error("Function not implemented.");
-}
+
