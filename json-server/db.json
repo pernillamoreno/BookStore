@@ -1,33 +1,22 @@
 {
   "user": [
     {
-      "username": "nnduFFm",
-      "password": "123hhjkjjj",
+      "username": "Bob Hej!!",
+      "password": "123",
       "role": "",
       "id": 4
     },
     {
-      "username": "123",
-      "password": "222",
+      "username": "Greta",
+      "password": "123",
+      "role": "",
       "id": 7
     },
     {
-      "username": "ssf",
-      "password": "lkuilyv",
+      "username": "Yves",
+      "password": "123",
       "role": "",
       "id": 9
-    },
-    {
-      "username": "<sCD",
-      "password": "ASC",
-      "role": "",
-      "id": 10
-    },
-    {
-      "username": "ee",
-      "password": "eee",
-      "role": "",
-      "id": 11
     }
   ]
 }
